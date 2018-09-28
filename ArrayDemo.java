@@ -7,9 +7,7 @@ class ArrayDemo {
             {6,7,8,9,10}, 
             {11,12,13,14,15}
         };
-        //printArray(test2);
-        System.out.println (test2[0]);
-        System.out.println (test2[1]);
+        printArray(test2);
     }
     //0a.
     public static void printArray(int[] ary){
@@ -22,7 +20,14 @@ class ArrayDemo {
     }
     
     //0b.
-    
-    
+    public static void printArray(int[][] ary){
+        String returnValue = "[";
+        for (int i = 0; i < ary.length; i ++) {
+            for (int i2 = 0; i2 < ary[i].length; i2 ++) {
+                returnValue = returnValue + ary[i][i2] + ", " ;
+            }
+        }        
+        System.out.print (returnValue.substring(0,returnValue.length()-2) + "]");
+    }
     
 }
