@@ -21,14 +21,23 @@ class ArrayDemo {
         System.out.print("1  Test : ");
         System.out.println (countZero2D(test3));
         
-        //2a
+        //2a Test run
         int[][] test4 = {
             {9,9,99,9,9,9},
             {9,9,9,9,9},
             {9,9,9,9,9,99,9}
         };
-        System.out.print ("2  Test : ");
+        System.out.print ("2a Test : ");
         fill2D (test4);
+        
+        //2b test run
+        int[][] test5 = {
+            {-2,3,4,-5,6},
+            {4,6,5,-45,-1},
+            {-1,-1,0,2}
+        };
+        System.out.print("2b Test : ");
+        printArray(fill2DCopy(test5) );
     }
     
     //0a.
@@ -69,19 +78,35 @@ class ArrayDemo {
     
     //2a
     public static void fill2D(int[][] vals){
-        String newArray = "";
         for (int i = 0; i < vals.length; i ++) {
-            newArray = newArray + "[";
             for (int i2 = 0; i2 < vals[i].length; i2 ++) {
                 if (i == i2) {
-                    newArray = newArray + "3, ";
+                    vals[i][i2]=3;
                 }
                 else {
-                    newArray = newArray + "1, ";
+                    vals[i][i2]=1;
                 }
             }
-                newArray = newArray.substring(0,newArray.length()-2) + "] ";
+        }
+        printArray(vals);
+    }
+    
+    //2b 
+    public static int[][] fill2DCopy(int[][] vals){
+        int[][] newArray = new int [vals.length][];
+        for (int i = 0; i < vals.length; i ++) {
+            newArray[i] = new int [vals[i].length];
+        }
+        for (int i = 0; i < vals.length; i ++) {
+            for (int i2 = 0; i2 < vals[i].length; i2 ++) {
+                if (vals[i][i2] < 0) {
+                    newArray[i][i2] = 3;
+                }
+                else {
+                    newArray[i][i2] = 1;
+                }
             }
-        System.out.println (newArray);
+        }
+        return newArray;
     }
 }
